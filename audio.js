@@ -21,19 +21,19 @@ function init(){
 var audioSources = {
     simon1: {
 //        playback: "null", 
-        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+        webLink : 'audioFiles/simonSound1.mp3'
     },
     simon2: {
 //        playback: "null", 
-        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound2.mp3'
+        webLink : 'audioFiles/simonSound2.mp3'
     },
     simon3: {
 //        playback: "null", 
-        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound3.mp3'
+        webLink : 'audioFiles/simonSound3.mp3'
     },
     simon4: {
 //        playback: "null", 
-        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
+        webLink : 'audioFiles/simonSound4.mp3'
     }
 }
 
