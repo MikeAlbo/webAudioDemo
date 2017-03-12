@@ -21,19 +21,19 @@ function init(){
 var audioSources = {
     simon1: {
 //        playback: "null", 
-        webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
     },
     simon2: {
 //        playback: "null", 
-        webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'
+        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound2.mp3'
     },
     simon3: {
 //        playback: "null", 
-        webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'
+        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound3.mp3'
     },
     simon4: {
 //        playback: "null", 
-        webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
+        webLink : 'http://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
     }
 }
 
@@ -56,7 +56,7 @@ function AudioLoadBuffer(source){
         request.onload = function(){
              context.decodeAudioData(request.response, function(res){
                 audioSources[file].playback = res;
-                console.log(audioSources[file]); 
+                 
             });
             
         }
