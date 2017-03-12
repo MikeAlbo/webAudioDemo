@@ -16,10 +16,13 @@ This demo handles the importing and decoding of the audio files passed to it. Th
 
 ## setup
 
-`window.addEventListener('load', init, false);`
 loads the init function when the document is ready
----
+``` javascript 
+window.addEventListener('load', init, false);
 ```
+
+---
+``` javascript
 function init(){
     try {
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
