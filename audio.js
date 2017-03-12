@@ -20,22 +20,24 @@ function init(){
 
 var audioSources = {
     simon1: {
-        playback: "null", 
+//        playback: "null", 
         webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
     },
     simon2: {
-        playback: "null", 
+//        playback: "null", 
         webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'
     },
     simon3: {
-        playback: "null", 
+//        playback: "null", 
         webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'
     },
     simon4: {
-        playback: "null", 
+//        playback: "null", 
         webLink : 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
     }
 }
+
+
 
 function AudioLoadBuffer(source){
     this.source = source;
@@ -58,15 +60,10 @@ function AudioLoadBuffer(source){
             
         }
         request.send();  
-    }
+    } }
     
-}
-
-var newAudio = new AudioLoadBuffer(audioSources);
-newAudio.loadData();
-
-
-function playBack(buffer){
+    
+    function playBack(buffer){
     var source = context.createBufferSource();
     source.buffer = buffer;
     source.connect(context.destination);
@@ -75,6 +72,9 @@ function playBack(buffer){
 
 
 
+
+var newAudio = new AudioLoadBuffer(audioSources);
+newAudio.loadData();
 
 // =========  interface with audio playback ==========
 
