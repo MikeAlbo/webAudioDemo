@@ -24,3 +24,11 @@ h1{
     width: 50px;
     height: 45px;
 }
+
+small {
+    font-size: .5em;
+}
+
+small a {
+    text-decoration: none;
+}

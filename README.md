@@ -118,7 +118,7 @@ this.loadData = function(){
 
 ```
 
-Note : You may encounter access issues, if the you are not connecting to your server. 
+Note : You may encounter access issues if the you are not connecting to your server. 
 
 
 ## playBack
