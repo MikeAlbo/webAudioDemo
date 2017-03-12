@@ -38,17 +38,29 @@ function init(){
 }
 ```
 
+
+## create a new instance...
+
+creates a new instance of AudioLoadBuffer and calls the loadData function()
+
+``` javascript
+var newAudio = new AudioLoadBuffer(audioSources);
+newAudio.loadData();
+
+```
+
+
 ## audioSources
 
-audioSources, is a JS object that contains the link to the audio file to be imported. 
+audioSources, is a JS object that contains the link to the audio file to be imported.
 
 ``` javascript
 var audioSources = {
     exSound1: {
-        webLink : 'https://example.com/audioFile1.mp3'
+        webLink : 'audioFiles/simonSound1.mp3'
     },
     exSound2: {
-        webLink : 'https://example.com/audioFile1.mp3'
+        webLink : 'audioFiles/simonSound2.mp3'
     }
     }
 
@@ -61,11 +73,11 @@ This is also the var the the buffer outputs to and is used in playback.
 ``` javascript
 var audioSources = {
     exSound1: {
-        webLink : 'https://example.com/audioFile1.mp3',
+        webLink : 'audioFiles/simonSound1.mp3',
         playback: AudioBuffer
     },
     exSound2: {
-        webLink : 'https://example.com/audioFile1.mp3',
+        webLink : 'audioFiles/simonSound2.mp3',
         playback: AudioBuffer
     }
     }
@@ -74,13 +86,63 @@ var audioSources = {
 
 
 ## AudioLoadBuffer
+A constructor that, takes the audioSourc file and calls the XMLHttpRequest() on each object. Upon success, the response is added to the audioSource file.
 
 ### loadData
 
+``` javascript
+this.loadData = function(){
+        for(var file in source){
+           httpReq(file);
+        }
+```
+
+
 ### httpReq
+
+``` javascript
+  function httpReq(file){
+        //console.log(url);
+        var request = new XMLHttpRequest();
+        request.open('GET', source[file].webLink, true);
+        request.responseType = 'arraybuffer'; 
+        request.onload = function(){
+             context.decodeAudioData(request.response, function(res){
+                audioSources[file].playback = res;
+                 
+            });
+            
+        }
+        request.send();  
+    }
+
+```
+
+Note : You may encounter access issues, if the you are not connecting to your server. 
+
 
 ## playBack
 
+The playback function builds the buffer, conects to the speakers, and starts (plays) the file.
+
+``` javascript
+ function playBack(buffer){
+    var source = context.createBufferSource();
+    source.buffer = buffer;
+    source.connect(context.destination);
+    source.start(0);
+}
+
+
+```
+
 ## demo interface
 
+1. playSound - switch function, that calls playBack
+2. button event listeners, call playSound and passes argument
+
+
 ## things to do...
+
+1. extract the main functionality into reusable code
+2. imporve error handling
