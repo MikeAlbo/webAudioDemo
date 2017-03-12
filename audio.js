@@ -16,7 +16,7 @@ function init(){
         }
 }
 
-// load multiple audion files 
+// load multiple audio files 
 
 var audioSources = {
     simon1: {
@@ -56,6 +56,7 @@ function AudioLoadBuffer(source){
         request.onload = function(){
              context.decodeAudioData(request.response, function(res){
                 audioSources[file].playback = res;
+                console.log(audioSources[file]); 
             });
             
         }
